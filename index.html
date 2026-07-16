@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotify API Explorer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand-lockup">
+        <div class="brand-mark">S</div>
+        <div>
+          <div class="brand-title">Spotify API Explorer</div>
+          <div class="brand-subtitle">Browse Spotify from a clean web UI</div>
+        </div>
+      </div>
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <strong id="authState">Not connected</strong>
+      </div>
+    </header>
+
+    <section class="layout">
+      <aside class="sidebar panel">
+        <div class="panel-head">
+          <div class="section-kicker">Your account</div>
+          <h2>Connect</h2>
+          <p>Sign in with Spotify to unlock search results and profile data.</p>
+        </div>
+
+        <label class="field">
+          <span>Spotify Client ID</span>
+          <input id="clientId" type="text" value="edc3e563d8ed457aa27fdfa0edb67733" placeholder="Paste your Spotify app client ID" autocomplete="off" />
+        </label>
+
+        <div class="action-stack">
+          <button id="loginBtn" class="btn primary">Connect Spotify</button>
+          <button id="logoutBtn" class="btn ghost" disabled>Disconnect</button>
+        </div>
+
+        <div class="profile-card" id="profileCard">
+          <div class="profile-avatar" id="profileAvatar">S</div>
+          <div>
+            <div class="profile-name" id="profileName">No account connected</div>
+            <div class="profile-meta" id="profileMeta">Authorize to load your Spotify profile.</div>
+          </div>
+        </div>
+
+        <div class="setup-note">
+          <strong>Setup</strong>
+          <p>Run this from a local web server and register the same callback URL in Spotify Dashboard.</p>
+        </div>
+      </aside>
+
+      <section class="main panel">
+        <section class="feature-strip">
+          <div class="section-kicker">Featured songs</div>
+          <div class="feature-head">
+            <div>
+              <h2>Popular picks</h2>
+              <p>Automatic song picks from Spotify after you connect.</p>
+            </div>
+            <span id="featuredCount">0 songs</span>
+          </div>
+          <div class="cards featured-cards" id="featuredResults"></div>
+        </section>
+
+        <div class="toolbar">
+          <div>
+            <div class="section-kicker">Search</div>
+            <h2>Search Spotify</h2>
+            <p>Search tracks, artists, and albums.</p>
+          </div>
+          <div class="chips" id="quickSearches">
+            <button class="chip" data-query="Daft Punk">Daft Punk</button>
+            <button class="chip" data-query="Taylor Swift">Taylor Swift</button>
+            <button class="chip" data-query="Jazz">Jazz</button>
+          </div>
+        </div>
+
+        <form id="searchForm" class="search-bar">
+          <input id="searchInput" type="search" placeholder="Search tracks, artists, albums" autocomplete="off" />
+          <button type="submit" class="btn primary">Search</button>
+        </form>
+
+        <div class="status-bar" id="statusBar">Connect your account to start exploring.</div>
+
+        <section class="results-grid">
+          <div class="result-column">
+            <div class="column-head">
+              <h3>Songs</h3>
+              <span id="trackCount">0 results</span>
+            </div>
+            <div class="cards" id="trackResults"></div>
+          </div>
+
+          <div class="result-column">
+            <div class="column-head">
+              <h3>Artists</h3>
+              <span id="artistCount">0 results</span>
+            </div>
+            <div class="cards" id="artistResults"></div>
+          </div>
+
+          <div class="result-column">
+            <div class="column-head">
+              <h3>Albums</h3>
+              <span id="albumCount">0 results</span>
+            </div>
+            <div class="cards" id="albumResults"></div>
+          </div>
+        </section>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
