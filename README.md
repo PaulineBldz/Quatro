@@ -2,6 +2,8 @@
 
 Team Members
 
-Alvarez, Kyla
-Arroyo, Nicca Kate
-BAldoz, Pauline
+Alvarez Kyla,
+
+Arroyo Nicca Kate,
+
+Baldoz Pauline.
